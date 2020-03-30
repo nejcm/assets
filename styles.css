@@ -1,0 +1,99 @@
+html,
+body {
+    font-family: sans-serif;
+    text-align: center;
+}
+.muted {
+    color: #888;
+}
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+.group h4 {
+    margin-bottom: 0.5rem;
+}
+.row > div {
+    display: inline-block;
+}
+
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+    position: fixed;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    visibility: hidden;
+    z-index: 1;
+    bottom: 30px;
+    animation: none;
+}
+#snackbar > div {
+    display: inline-block;
+    min-width: 100px;
+    background-color: #333;
+    color: #fff;
+    font-size: 11px;
+    text-align: center;
+    border-radius: 3px;
+    padding: 6px 8px;
+    opacity: 0.8;
+}
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s;
+    animation: fadein 0.5s;
+}
+#snackbar.hide {
+    -webkit-animation: fadeout 0.5s;
+    animation: fadeout 0.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        visibility: visible;
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        visibility: hidden;
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        visibility: visible;
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        visibility: hidden;
+        bottom: 0;
+        opacity: 0;
+    }
+}

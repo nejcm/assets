@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8" />
+        <title>Nejc Muršič</title>
+        <meta name="description" content="Assets" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="manifest" href="site.webmanifest" />
+        <link rel="apple-touch-icon" href="icon.png" />
+        <!-- Place favicon.ico in the root directory -->
+        <meta name="theme-color" content="#fafafa" />
+        <!-- Google Tag Manager -->
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+        <script>
+            (function(w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({
+                    "gtm.start": new Date().getTime(),
+                    event: "gtm.js",
+                });
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l != "dataLayer" ? "&l=" + l : "";
+                j.async = true;
+                j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, "script", "dataLayer", "GTM-TH7BCB5");
+        </script>
+        <!-- End Google Tag Manager -->
+    </head>
+    <body>
+        <!--[if IE]>
+            <p class="browserupgrade">
+                You are using an <strong>outdated</strong> browser. Please
+                <a href="https://browsehappy.com/">upgrade your browser</a> to
+                improve your experience and security.
+            </p>
+        <![endif]-->
+        <div id="container" class="container">
+            <h1>Some useful assets</h1>
+            <p class="muted">Double click image to copy link.</p>
+            <div class="group">
+                <h4>StoryBook</h4>
+                <div class="row">
+                    <div>
+                        <img
+                            src="assets/storybook.svg"
+                            width="90"
+                            height="auto"
+                            alt="storybook"
+                            title="https://nejcmursic.netlify.com/assets/storybook.svg"
+                        />
+                    </div>
+                    <div>
+                        <img
+                            src="assets/storybook_flat.svg"
+                            width="90"
+                            height="auto"
+                            alt="storybook flat"
+                            title="https://nejcmursic.netlify.com/assets/storybook_flat.svg"
+                        />
+                    </div>
+                    <div>
+                        <img
+                            src="assets/storybook_solid.svg"
+                            width="90"
+                            height="auto"
+                            alt="storybook solid"
+                            title="https://nejcmursic.netlify.com/assets/storybook_solid.svg"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="snackbar"><div>Copied to clipboard!</div></div>
+        <script>
+            function showToast() {
+                var x = document.getElementById("snackbar");
+                // Add the "show" class to DIV
+                x.className = "show";
+                // After 4 seconds, remove the show class from DIV
+                setTimeout(function() {
+                    x.className = x.className.replace("show", "hide");
+                }, 4000);
+            }
+            // Copy to clipboard on double click
+            function copyToClipboard(str) {
+                var el = document.createElement("textarea");
+                el.value = str;
+                el.setAttribute("readonly", "");
+                el.style.position = "absolute";
+                el.style.left = "-9999px";
+                document.body.appendChild(el);
+                el.select();
+                document.execCommand("copy");
+                document.body.removeChild(el);
+            }
+            function copy(e) {
+                if (e.target && e.target.nodeName === "IMG") {
+                    copyToClipboard(e.target.title);
+                    showToast();
+                }
+            }
+
+            var elements = document.getElementsByClassName("row");
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].addEventListener("dblclick", copy, false);
+            }
+        </script>
+    </body>
+</html>
